@@ -1,0 +1,87 @@
+<div class="side-nav">
+    <div class="side-nav_bg-image">
+        <img src="../../../assets/Images/Common/mountain_bg_4.jpg" alt="">
+    </div>
+    <!-- <div class="side-nav_bg-color"></div> -->
+
+    <div class="logo">
+        <h4 *ngIf="commonService.sideBar">
+            <a routerLink="dashboard">LOGISTICS</a>
+        </h4>
+
+        <h4 *ngIf="!commonService.sideBar">
+            <a routerLink="dashboard">L</a>
+        </h4>
+
+    </div>
+
+    <div class="h-line"></div>
+
+    <div class="user" data-bs-toggle="collapse" href="#collapseLinks" role="button" aria-expanded="false"
+        aria-controls="collapseLinks">
+        <div class="user-profile" (click)="toggleUserDropdownIcon()">
+            <div class="user-image"
+                [ngClass]="{'user-image': commonService.sideBar, 'hamburger-image':! commonService.sideBar}">
+                <img src="../../../assets/Images/Common/user_avatar.jpg" alt="">
+            </div>
+
+            <div class="user-name" *ngIf="commonService.sideBar">
+                <span>User Name</span>
+                <div class="user-dropdown-icons">
+                    <div class="down" *ngIf="userDropdownIcon == false; else userElse">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                        </svg>
+                    </div>
+
+                    <ng-template #userElse>
+                        <div class="up">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                            </svg>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="collapse user-dropdown_links" id="collapseLinks">
+            <div class="my-profile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                </svg>
+                <span *ngIf="commonService.sideBar">My Profile</span>
+            </div>
+
+            <div class="logout">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
+                    <path fill-rule="evenodd"
+                        d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+                </svg>
+                <span *ngIf="commonService.sideBar">Logout</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="h-line"></div>
+
+    <div class="navigation-links">
+        <ul>
+            <li *ngFor="let link of navigationLinks">
+                <a routerLinkActive="active" [routerLink]="link.path">
+                    <img [src]="link.icon" alt="">
+                    <span *ngIf="commonService.sideBar">{{link.label}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

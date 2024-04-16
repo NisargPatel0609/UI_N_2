@@ -1,0 +1,43 @@
+table {
+    width: 100%;
+
+    th.mat-sort-header-sorted {
+      color: black;
+    }
+    
+  }
+
+
+
+.action{
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+}
+
+
+.add-button:hover {
+  opacity: .7;
+}
+
+mat-icon:hover{
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  .add-button {
+    font-size: 14px;
+    height: 55px;
+    line-height: 55px;
+    width: 150px;
+  }
+}
+
+
+.notFound{
+  text-align: center;
+  padding:  2rem;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
